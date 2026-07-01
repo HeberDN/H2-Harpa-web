@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.heberdn.harpacrista",
+            "sha256_cert_fingerprints": [
+                "04:73:BF:4F:7D:07:98:E3:8E:41:11:6E:A1:63:D4:A4:C5:B9:33:7F:1E:89:96:42:22:D4:41:8E:80:16:AB:7E"
+            ]
+        }
+    }
+]

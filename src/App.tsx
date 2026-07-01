@@ -1,21 +1,35 @@
-import { Button } from "@/components/ui/button"
+import { useEffect, useState } from 'react';
+import LandingPageV2 from './pages/LandingPageV2';
+import { PrivacyPolicy } from '@/pages/PrivacyPolicy';
+import { TermsOfUse } from '@/pages/TermsOfUse';
 
 export function App() {
-  return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
-      </div>
-    </div>
-  )
+  const [currentHash, setCurrentHash] = useState(window.location.hash);
+
+  useEffect(() => {
+    const onHashChange = () => {
+      const newHash = window.location.hash;
+      setCurrentHash(newHash);
+      
+      // Só volta pro topo se for troca de página real (ex: indo para Política de Privacidade ou voltando para home limpa)
+      if (newHash === '#privacy' || newHash === '#terms' || newHash === '') {
+        window.scrollTo(0, 0);
+      }
+    };
+
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
+
+  if (currentHash === '#privacy') {
+    return <PrivacyPolicy />;
+  }
+
+  if (currentHash === '#terms') {
+    return <TermsOfUse />;
+  }
+
+  return <LandingPageV2 />;
 }
 
-export default App
+export default App;
