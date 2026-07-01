@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { ArrowLeft } from '@phosphor-icons/react';
+import { ArrowLeftIcon } from '@phosphor-icons/react';
 
 export function TermsOfUse() {
   return (
@@ -7,7 +7,7 @@ export function TermsOfUse() {
       <header className="py-6 px-8 border-b flex items-center">
         <Button variant="ghost" asChild className="mr-4">
           <a href="#">
-            <ArrowLeft className="w-5 h-5 mr-2" />
+            <ArrowLeftIcon className="w-5 h-5 mr-2" />
             Voltar
           </a>
         </Button>
@@ -22,7 +22,7 @@ export function TermsOfUse() {
           <section>
             <h2 className="text-2xl font-semibold mb-3">1. Aceitação dos Termos</h2>
             <p>
-              Ao baixar ou usar o aplicativo <strong>H2 Harpa Cristã</strong>, você concorda automaticamente com estes termos. 
+              Ao baixar ou usar o aplicativo <strong>H2 Harpa Cristã</strong>, você concorda automaticamente com estes termos.
               Certifique-se de lê-los atentamente antes de utilizar o aplicativo.
             </p>
           </section>
@@ -31,7 +31,7 @@ export function TermsOfUse() {
             <h2 className="text-2xl font-semibold mb-3">2. Uso do Aplicativo</h2>
             <p>
               O aplicativo foi desenvolvido para facilitar o acompanhamento e a leitura dos hinos nos cultos.
-              Você pode usá-lo para fins pessoais, mas não é permitido copiar ou modificar o aplicativo, qualquer parte 
+              Você pode usá-lo para fins pessoais, mas não é permitido copiar ou modificar o aplicativo, qualquer parte
               do aplicativo, ou nossas marcas registradas de forma alguma sem nossa permissão explícita.
             </p>
           </section>
@@ -39,8 +39,8 @@ export function TermsOfUse() {
           <section>
             <h2 className="text-2xl font-semibold mb-3">3. Disponibilidade e Alterações</h2>
             <p>
-              O H2 Arua reserva-se o direito de fazer alterações no aplicativo ou cobrar por seus serviços 
-              a qualquer momento e por qualquer motivo. Nunca cobraremos pelo aplicativo ou por seus serviços 
+              O H2 Arua reserva-se o direito de fazer alterações no aplicativo ou cobrar por seus serviços
+              a qualquer momento e por qualquer motivo. Nunca cobraremos pelo aplicativo ou por seus serviços
               sem deixar muito claro exatamente pelo que você está pagando.
             </p>
           </section>
@@ -48,8 +48,8 @@ export function TermsOfUse() {
           <section>
             <h2 className="text-2xl font-semibold mb-3">4. Responsabilidade</h2>
             <p>
-              Embora nos esforcemos para garantir que o aplicativo esteja sempre atualizado e correto, nós não 
-              assumimos qualquer responsabilidade por eventuais falhas, interrupções ou danos diretos ou indiretos 
+              Embora nos esforcemos para garantir que o aplicativo esteja sempre atualizado e correto, nós não
+              assumimos qualquer responsabilidade por eventuais falhas, interrupções ou danos diretos ou indiretos
               decorrentes do uso do aplicativo.
             </p>
           </section>
