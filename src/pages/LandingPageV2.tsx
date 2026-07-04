@@ -13,7 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { QRCodeSVG } from 'qrcode.react';
 import { useEffect, useState, useRef } from 'react';
 import ImgBusca from '@/assets/Print_1_Encontre_qualquer_hino.png';
-import ImgPrincipal from '@/assets/Seu_louvor_do_seu_jeito.png';
+import ImgPrincipal from '@/assets/modo_escuro.png';
 import ImgCategorias from '@/assets/Categorias_Personalizadas.png';
 import LogoIcon from '@/assets/icon-foreground.png';
 
@@ -195,7 +195,7 @@ export default function LandingPageV2() {
             {/* ─── SEÇÃO DE DEMONSTRAÇÃO (CARROSSEL MOBILE) ─── */}
             <section id="demonstracao" className="py-16 md:py-24 bg-zinc-950 border-b border-zinc-900 overflow-hidden">
                 <div className="max-w-7xl mx-auto px-0 md:px-6">
-                    <div className="px-4 md:px-0 mb-8 md:mb-16">
+                    <div className="px-4 md:px-0 mb-4 md:mb-8">
                         <Badge className="bg-zinc-900 text-zinc-400 mb-3 border border-zinc-800 rounded-full">O App</Badge>
                         <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-white mb-2">
                             Interface limpa e focada
@@ -206,7 +206,7 @@ export default function LandingPageV2() {
                     </div>
 
                     {/* Carrossel Horizontal para Mobile / Grid para Desktop */}
-                    <div className="flex md:grid md:grid-cols-3 gap-4 md:gap-8 overflow-x-auto snap-x snap-mandatory px-4 md:px-0 pb-6 hide-scrollbar" style={{ scrollbarWidth: 'none' }}>
+                    <div className="flex md:grid md:grid-cols-3 gap-4 md:gap-8 overflow-x-auto snap-x snap-mandatory px-4 md:px-0 pt-4 md:pt-8 pb-6 hide-scrollbar" style={{ scrollbarWidth: 'none' }}>
 
                         <div className="snap-center shrink-0 w-[85%] md:w-auto relative rounded-3xl bg-zinc-900/40 p-3 md:p-4 border border-zinc-800 transition-all hover:border-zinc-700">
                             <div className="rounded-2xl overflow-hidden shadow-xl bg-black">
@@ -236,11 +236,7 @@ export default function LandingPageV2() {
                         <div className="shrink-0 w-2 md:hidden" aria-hidden="true"></div>
                     </div>
 
-                    <div className="flex justify-center gap-1.5 md:hidden mt-2">
-                        <div className="w-2 h-2 rounded-full bg-zinc-500"></div>
-                        <div className="w-2 h-2 rounded-full bg-zinc-800"></div>
-                        <div className="w-2 h-2 rounded-full bg-zinc-800"></div>
-                    </div>
+
                 </div>
                 {/* Ocultar barra de rolagem no CSS local se não estiver no global */}
                 <style dangerouslySetInnerHTML={{
