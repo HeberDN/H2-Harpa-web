@@ -125,7 +125,7 @@ export default function LandingPageV2() {
                             </a>
                         </Button>
                         <Button variant="outline" className="w-full sm:w-auto px-8 py-6 h-14 border-zinc-800 bg-zinc-900/50 text-zinc-200 hover:bg-zinc-800 rounded-full active:scale-95 transition-all gap-2" asChild>
-                            <a href="intent://#Intent;package=com.heberdn.harpacrista;scheme=https;end;">
+                            <a href="intent://harpa.h2arua.com/#Intent;scheme=https;package=com.heberdn.harpacrista;end;">
                                 <DeviceMobileIcon className="w-5 h-5" /> Abrir no Celular
                             </a>
                         </Button>
