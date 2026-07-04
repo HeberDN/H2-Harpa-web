@@ -10,6 +10,12 @@ import {
 } from '@phosphor-icons/react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    type CarouselApi,
+} from "@/components/ui/carousel";
 import { QRCodeSVG } from 'qrcode.react';
 import { useEffect, useState, useRef } from 'react';
 import ImgBusca from '@/assets/Print_1_Encontre_qualquer_hino.png';
@@ -20,6 +26,18 @@ import LogoIcon from '@/assets/icon-foreground.png';
 export default function LandingPageV2() {
     const [showStickyCTA, setShowStickyCTA] = useState(false);
     const heroRef = useRef<HTMLElement>(null);
+    const [api, setApi] = useState<CarouselApi>();
+    const [current, setCurrent] = useState(0);
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        if (!api) return;
+        setCount(api.scrollSnapList().length);
+        setCurrent(api.selectedScrollSnap());
+        api.on("select", () => {
+            setCurrent(api.selectedScrollSnap());
+        });
+    }, [api]);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -205,48 +223,60 @@ export default function LandingPageV2() {
                         </p>
                     </div>
 
-                    {/* Carrossel Horizontal para Mobile / Grid para Desktop */}
-                    <div className="flex md:grid md:grid-cols-3 gap-4 md:gap-8 overflow-x-auto snap-x snap-mandatory px-4 md:px-0 pt-4 md:pt-8 pb-6 hide-scrollbar" style={{ scrollbarWidth: 'none' }}>
+                    {/* Carrossel Shadcn UI */}
+                    <Carousel
+                        opts={{
+                            align: "center",
+                            loop: false,
+                        }}
+                        setApi={setApi}
+                        className="w-full max-w-full px-4 md:px-0"
+                    >
+                        <CarouselContent className="pt-4 md:pt-8 pb-6 -ml-4 md:-ml-8">
+                            <CarouselItem className="pl-4 md:pl-8 basis-[85%] md:basis-1/3">
+                                <div className="h-full relative rounded-3xl bg-zinc-900/40 p-3 md:p-4 border border-zinc-800 transition-all hover:border-zinc-700">
+                                    <div className="rounded-2xl overflow-hidden shadow-xl bg-black">
+                                        <img src={ImgBusca} alt="Busca Rápida" className="w-full h-auto object-contain" loading="lazy" />
+                                    </div>
+                                    <p className="text-center text-xs md:text-sm font-medium text-zinc-300 mt-4 mb-1">Busca Rápida</p>
+                                </div>
+                            </CarouselItem>
 
-                        <div className="snap-center shrink-0 w-[85%] md:w-auto relative rounded-3xl bg-zinc-900/40 p-3 md:p-4 border border-zinc-800 transition-all hover:border-zinc-700">
-                            <div className="rounded-2xl overflow-hidden shadow-xl bg-black">
-                                <img src={ImgBusca} alt="Busca Rápida" className="w-full h-auto object-contain" loading="lazy" />
-                            </div>
-                            <p className="text-center text-xs md:text-sm font-medium text-zinc-300 mt-4 mb-1">Busca Rápida</p>
-                        </div>
+                            <CarouselItem className="pl-4 md:pl-8 basis-[85%] md:basis-1/3">
+                                <div className="h-full relative rounded-3xl bg-zinc-900/40 p-3 md:p-4 border border-blue-500/30 transition-all shadow-lg shadow-blue-500/10 md:-translate-y-4">
+                                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
+                                        <Badge className="bg-blue-600 hover:bg-blue-600 text-white border-none shadow-md shadow-blue-900/50 rounded-full text-[10px] whitespace-nowrap">Personalizável</Badge>
+                                    </div>
+                                    <div className="rounded-2xl overflow-hidden shadow-xl bg-black">
+                                        <img src={ImgPrincipal} alt="Tema Escuro" className="w-full h-auto object-contain" loading="lazy" />
+                                    </div>
+                                    <p className="text-center text-xs md:text-sm font-medium text-white mt-4 mb-1">Modo Escuro Elegante</p>
+                                </div>
+                            </CarouselItem>
 
-                        <div className="snap-center shrink-0 w-[85%] md:w-auto relative rounded-3xl bg-zinc-900/40 p-3 md:p-4 border border-blue-500/30 transition-all shadow-lg shadow-blue-500/10 md:-translate-y-4">
-                            <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                                <Badge className="bg-blue-600 hover:bg-blue-600 text-white border-none shadow-md shadow-blue-900/50 rounded-full text-[10px] whitespace-nowrap">Personalizável</Badge>
-                            </div>
-                            <div className="rounded-2xl overflow-hidden shadow-xl bg-black">
-                                <img src={ImgPrincipal} alt="Tema Escuro" className="w-full h-auto object-contain" loading="lazy" />
-                            </div>
-                            <p className="text-center text-xs md:text-sm font-medium text-white mt-4 mb-1">Modo Escuro Elegante</p>
-                        </div>
+                            <CarouselItem className="pl-4 md:pl-8 basis-[85%] md:basis-1/3">
+                                <div className="h-full relative rounded-3xl bg-zinc-900/40 p-3 md:p-4 border border-zinc-800 transition-all hover:border-zinc-700">
+                                    <div className="rounded-2xl overflow-hidden shadow-xl bg-black">
+                                        <img src={ImgCategorias} alt="Organização Temática" className="w-full h-auto object-contain" loading="lazy" />
+                                    </div>
+                                    <p className="text-center text-xs md:text-sm font-medium text-zinc-300 mt-4 mb-1">Organização por Categorias</p>
+                                </div>
+                            </CarouselItem>
+                        </CarouselContent>
+                    </Carousel>
 
-                        <div className="snap-center shrink-0 w-[85%] md:w-auto relative rounded-3xl bg-zinc-900/40 p-3 md:p-4 border border-zinc-800 transition-all hover:border-zinc-700">
-                            <div className="rounded-2xl overflow-hidden shadow-xl bg-black">
-                                <img src={ImgCategorias} alt="Organização Temática" className="w-full h-auto object-contain" loading="lazy" />
-                            </div>
-                            <p className="text-center text-xs md:text-sm font-medium text-zinc-300 mt-4 mb-1">Organização por Categorias</p>
-                        </div>
-
-                        {/* Espaçador final para o carrossel não grudar no canto direito */}
-                        <div className="shrink-0 w-2 md:hidden" aria-hidden="true"></div>
-                    </div>
-
+                    {/* Dots Interativos */}
                     <div className="flex justify-center gap-1.5 md:hidden mt-2">
-                        <div className="w-2 h-2 rounded-full bg-zinc-500"></div>
-                        <div className="w-2 h-2 rounded-full bg-zinc-800"></div>
-                        <div className="w-2 h-2 rounded-full bg-zinc-800"></div>
+                        {Array.from({ length: count }).map((_, i) => (
+                            <button
+                                key={i}
+                                onClick={() => api?.scrollTo(i)}
+                                className={`h-2 rounded-full transition-all ${i === current ? 'bg-zinc-300 w-4' : 'bg-zinc-700 w-2'}`}
+                                aria-label={`Ir para slide ${i + 1}`}
+                            />
+                        ))}
                     </div>
                 </div>
-                {/* Ocultar barra de rolagem no CSS local se não estiver no global */}
-                <style dangerouslySetInnerHTML={{
-                    __html: `
-                    .hide-scrollbar::-webkit-scrollbar { display: none; }
-                `}} />
             </section>
 
             {/* ─── SEÇÃO DE DIFERENCIAIS (BLOCOS) ─── */}
