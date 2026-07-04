@@ -107,7 +107,7 @@ export default function LandingPageV2() {
                             </a>
                         </Button>
                         <Button variant="outline" className="w-full sm:w-auto px-8 py-6 h-14 border-zinc-800 bg-zinc-900/50 text-zinc-200 hover:bg-zinc-800 rounded-full active:scale-95 transition-all gap-2" asChild>
-                            <a href="intent://harpa#Intent;scheme=harpa;package=com.heberdn.harpacrista;S.browser_fallback_url=https://play.google.com/store/apps/details?id=com.heberdn.harpacrista;end;">
+                            <a href="intent://#Intent;package=com.heberdn.harpacrista;scheme=https;end;">
                                 <DeviceMobileIcon className="w-5 h-5" /> Abrir no Celular
                             </a>
                         </Button>
@@ -236,7 +236,11 @@ export default function LandingPageV2() {
                         <div className="shrink-0 w-2 md:hidden" aria-hidden="true"></div>
                     </div>
 
-
+                    <div className="flex justify-center gap-1.5 md:hidden mt-2">
+                        <div className="w-2 h-2 rounded-full bg-zinc-500"></div>
+                        <div className="w-2 h-2 rounded-full bg-zinc-800"></div>
+                        <div className="w-2 h-2 rounded-full bg-zinc-800"></div>
+                    </div>
                 </div>
                 {/* Ocultar barra de rolagem no CSS local se não estiver no global */}
                 <style dangerouslySetInnerHTML={{
