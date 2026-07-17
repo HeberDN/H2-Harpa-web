@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { ArrowLeft } from '@phosphor-icons/react';
+import { ArrowLeftIcon } from '@phosphor-icons/react';
 
 export function PrivacyPolicy() {
   return (
@@ -7,7 +7,7 @@ export function PrivacyPolicy() {
       <header className="py-6 px-8 border-b flex items-center">
         <Button variant="ghost" asChild className="mr-4">
           <a href="#">
-            <ArrowLeft className="w-5 h-5 mr-2" />
+            <ArrowLeftIcon className="w-5 h-5 mr-2" />
             Voltar
           </a>
         </Button>

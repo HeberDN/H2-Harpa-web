@@ -22,6 +22,7 @@ import ImgBusca from '@/assets/Print_1_Encontre_qualquer_hino.png';
 import ImgPrincipal from '@/assets/modo_escuro.png';
 import ImgCategorias from '@/assets/Categorias_Personalizadas.png';
 import LogoIcon from '@/assets/icon-foreground.png';
+import { ShieldWarningIcon } from '@phosphor-icons/react';
 
 export default function LandingPageV2() {
     const [showStickyCTA, setShowStickyCTA] = useState(false);
@@ -76,7 +77,8 @@ export default function LandingPageV2() {
                         <a href="#beneficios" className="hidden sm:block text-sm text-zinc-400 hover:text-zinc-200 transition-colors">Benefícios</a>
                         <a href="#demonstracao" className="hidden sm:block text-sm text-zinc-400 hover:text-zinc-200 transition-colors">O App</a>
                         <Button variant="outline" size="sm" className="border-zinc-800 text-zinc-300 hover:bg-zinc-900 rounded-full h-8 px-3 text-xs md:text-sm active:scale-95 transition-transform" asChild>
-                            <a href="#privacy">Privacidade</a>
+                            
+                            <a href="#privacy"> <ShieldWarningIcon /> Privacidade</a>
                         </Button>
                     </nav>
                 </div>
@@ -114,9 +116,12 @@ export default function LandingPageV2() {
                     </h1>
 
                     <p className="text-sm sm:text-base md:text-xl text-zinc-400 mb-8 md:mb-10 max-w-md mx-auto leading-relaxed px-2">
-                        Rápido, offline e sem distrações. A experiência perfeita para os cultos.
+                        Rápido, offline e sem propagandas e distrações.
                     </p>
 
+                    <p className="text-sm sm:text-base md:text-xl text-zinc-400 mb-8 md:mb-10 max-w-md mx-auto leading-relaxed px-2">
+                        A experiência perfeita para os cultos.
+                    </p>
                     {/* CTAs principais */}
                     <div className="flex flex-col w-full sm:w-auto sm:flex-row items-center justify-center gap-3 mb-10 md:mb-16">
                         <Button className="hidden md:flex w-full sm:w-auto px-8 py-6 h-14 bg-blue-600 hover:bg-blue-500 text-white font-medium text-base rounded-full shadow-lg shadow-blue-600/20 active:scale-95 transition-all gap-2" asChild>
