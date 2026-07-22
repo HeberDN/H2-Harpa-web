@@ -31,6 +31,33 @@ export default function LandingPageV2() {
     const [current, setCurrent] = useState(0);
     const [count, setCount] = useState(0);
 
+    // --- ANIMAÇÃO DE TEXTO ---
+    const word1List = ["barreiras", "distrações", "propagandas", "interrupções"];
+    const word2List = ["e a adoração", "e o louvor"];
+    const [currentPhrase, setCurrentPhrase] = useState({ word1: word1List[0], word2: word2List[0] });
+    const [isAnimatingPhrase, setIsAnimatingPhrase] = useState(false);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIsAnimatingPhrase(true);
+            setTimeout(() => {
+                setCurrentPhrase(prev => {
+                    let nextWord1 = prev.word1;
+                    while (nextWord1 === prev.word1) {
+                        nextWord1 = word1List[Math.floor(Math.random() * word1List.length)];
+                    }
+                    let nextWord2 = prev.word2;
+                    while (nextWord2 === prev.word2) {
+                        nextWord2 = word2List[Math.floor(Math.random() * word2List.length)];
+                    }
+                    return { word1: nextWord1, word2: nextWord2 };
+                });
+                setIsAnimatingPhrase(false);
+            }, 450);
+        }, 4800);
+        return () => clearInterval(interval);
+    }, []);
+
     useEffect(() => {
         if (!api) return;
         setCount(api.scrollSnapList().length);
@@ -77,7 +104,7 @@ export default function LandingPageV2() {
                         <a href="#beneficios" className="hidden sm:block text-sm text-zinc-400 hover:text-zinc-200 transition-colors">Benefícios</a>
                         <a href="#demonstracao" className="hidden sm:block text-sm text-zinc-400 hover:text-zinc-200 transition-colors">O App</a>
                         <Button variant="outline" size="sm" className="border-zinc-800 text-zinc-300 hover:bg-zinc-900 rounded-full h-8 px-3 text-xs md:text-sm active:scale-95 transition-transform" asChild>
-                            
+
                             <a href="#privacy"> <ShieldWarningIcon /> Privacidade</a>
                         </Button>
                     </nav>
@@ -170,9 +197,16 @@ export default function LandingPageV2() {
                     <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-white mb-3">
                         Feito para o culto
                     </h2>
-                    <p className="text-zinc-400 text-sm md:text-base">
-                        Sem barreiras entre você e a adoração.
-                    </p>
+                    <div className="text-zinc-400 text-sm md:text-base flex flex-wrap items-center md:justify-center gap-x-1 min-h-[40px] md:min-h-0">
+                        <span>Sem</span>
+                        <span className={`inline-block font-semibold text-white transition-all duration-300 ${isAnimatingPhrase ? 'opacity-0 -translate-y-3' : 'opacity-100 translate-y-0'}`}>
+                            {currentPhrase.word1}
+                        </span>
+                        <span>entre você</span>
+                        <span className={`inline-block font-semibold text-white transition-all duration-300 ${isAnimatingPhrase ? 'opacity-0 translate-y-3' : 'opacity-100 translate-y-0'}`}>
+                            {currentPhrase.word2}
+                        </span>.
+                    </div>
                 </div>
 
                 {/* Lista Mobile / Grid Desktop */}

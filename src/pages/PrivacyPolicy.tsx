@@ -1,14 +1,14 @@
 import { Button } from '@/components/ui/button';
-import { ArrowLeftIcon } from '@phosphor-icons/react';
+import { HouseIcon } from '@phosphor-icons/react';
 
 export function PrivacyPolicy() {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
-      <header className="py-6 px-8 border-b flex items-center">
+      <header className="py-6 px-8 border-b flex items-center justify-between">
         <Button variant="ghost" asChild className="mr-4">
           <a href="#">
-            <ArrowLeftIcon className="w-5 h-5 mr-2" />
-            Voltar
+            <HouseIcon className="w-5 h-5 mr-2" />
+            H2 Harpa Cristã
           </a>
         </Button>
         <span className="font-bold text-xl">Política de Privacidade</span>
